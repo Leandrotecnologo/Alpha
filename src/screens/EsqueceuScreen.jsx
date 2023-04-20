@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, ImageBackground, Text } from 'react-native';
 import image from "../../assets/Fundao.jpg";
 
+
+
+
 const imageURI = image;
+
+
+
 
 const EsqueceuScreen = () => {
   const [email, setEmail] = useState('');
@@ -14,14 +20,16 @@ const EsqueceuScreen = () => {
     setNovaSenha('');
   };
 
+
+
   return (
     <View style={styles.container}>
-     
+
       <ImageBackground
         source={{ uri: imageURI }}
         style={styles.backgroundImage}
       >
-         <View style={styles.formContainer}>
+        <View style={styles.formContainer}>
           <View style={styles.fundo}>
             <div style={styles.Log} ><Text style={styles.tex}>Alterar</Text></div>
             <TextInput
@@ -37,17 +45,21 @@ const EsqueceuScreen = () => {
               onChangeText={setNovaSenha}
               secureTextEntry={true}
             />
-           <View style={styles.button} >
-           <Text style={styles.buttonText}>Entrar</Text>
+            <View style={styles.button} >
+              <Text style={styles.buttonText}>Entrar</Text>
+            </View>
           </View>
-          </View>
-      
-      </View >
+
+        </View >
       </ImageBackground>
     </View>
-    
+
   );
+
 };
+
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -62,8 +74,10 @@ const styles = StyleSheet.create({
     color: "#000000",
     fontWeight: "bold",
     fontSize: 30,
-    marginLeft: 20,
+    marginLeft: 0,
   },
+
+
 
   formContainer: {
     height: 450,
@@ -87,7 +101,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 100,
     marginLeft: 100,
-    marginTop: 25,
+    marginTop: 40,
     marginBottom: 20,
   },
   buttonText: {
@@ -102,7 +116,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#76bb39",
     borderRadius: "40px",
     marginLeft: 55,
-    marginTop: 90,
+    marginTop: 120,
   },
   Log: {
     flex: 1,
@@ -118,7 +132,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 115,
   },
+
 });
+
 export default EsqueceuScreen;
 
 

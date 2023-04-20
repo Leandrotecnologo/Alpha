@@ -6,6 +6,10 @@ import ContatoScreen from './screens/ContatoScreen';
 import LocutoresScreen from './screens/LocutoresScreen';
 import ProgramScreen from './screens/ProgramScreen';
 import InicioScreen from './screens/InicioScreen';
+import LoginScreen from './screens/LoginScreen';
+import EsqueceuScreen from './screens/EsqueceuScreen';
+import CadScreen from './screens/CadScreen';
+
 
 
 
@@ -30,6 +34,9 @@ export default function Index() {
         <Drawer.Screen name="Locutores" component={LocutoresScreen} />
         <Drawer.Screen name="Contatos" component={ContatoScreen} />
         <Drawer.Screen name="Formulario" component={FormScreen} />
+        <Drawer.Screen name="LoginScreen" component={LoginScreen} />
+        <Drawer.Screen name="EsqueceuScreen" component={EsqueceuScreen}/>
+        <Drawer.Screen name="Cadastrar" component={CadScreen}/>
         </Drawer.Navigator>        
        
         <Drawer.Screen name="LoginScreen" options={{ headerShown: false }}>

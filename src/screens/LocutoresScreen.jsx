@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginLeft: 13,
         marginTop: 20,
-        marginTop: 0,
+        marginTop: 60,
       },
     locutorCard: {
         flexDirection: 'row',
