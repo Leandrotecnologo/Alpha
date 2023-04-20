@@ -7,39 +7,47 @@ import {
   View,
   ImageBackground,
 } from "react-native";
+import image from "../../assets/Fundao.jpg";
 
-const imageURI =
-  "https://cdn.discordapp.com/attachments/1085610772014575756/1086347788264144906/Luizcbm_black_and_green_background_in_426x870_2b8c5382-f10b-41a3-82e0-343c439ebddd.png";
+const imageURI = image;
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   const handleLogin = () => {
     // implementar a lógica de autenticação aqui
   };
 
-  const handleNavigateToCadScreen = () => {
-    navigation.navigate("CadScreen");
-  };
+
+  const handlePress = () => {
+    // Navegue para o componente CadScreen quando o botão for pressionado
+    navigation.navigate('CadScreen')
+  }
+  const handlePressed = () => {
+    // Navegue para o componente CadScreen quando o botão for pressionado
+
+    navigation.navigate('EsqueceuScreen');
+  }
+
+
 
   return (
     <View style={styles.container}>
       <ImageBackground
         source={{ uri: imageURI }}
         style={styles.backgroundImage}
+
       >
         <View style={styles.formContainer}>
-          <View>
-            <img
-              src="https://www.canva.com/design/DAFde9_TmLY/Py6axnS7j8Qh-MaHoDfmUQ/edit?utm_content=DAFde9_TmLY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton.jpg"
-              alt=""
-            />
-          </View>
+
           <View style={styles.fundo}>
-            
-             <div style={styles.Log} ><Text>Login</Text></div>
-           
+
+
+            <div style={styles.Log} ><Text style={styles.tex}>Login</Text></div>
+
+
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -58,14 +66,19 @@ const LoginScreen = ({ navigation }) => {
               value={password}
               onChangeText={setPassword}
             />
-            <TouchableOpacity
-              style={styles.button}
-              onPress={handleNavigateToCadScreen}
-            >
-              <Text style={styles.buttonText}>Cadastrar</Text>
-            </TouchableOpacity>
+
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
               <Text style={styles.buttonText}>Entrar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePress}>
+              <Text style={styles.link}>Não tem conta? Cadastre-se</Text>
+            </TouchableOpacity>
+
+
+
+            <TouchableOpacity onPress={handlePressed}>
+              <Text style={styles.lin}>Esqueceu sua senha?</Text>
+
             </TouchableOpacity>
           </View>
         </View>
@@ -73,6 +86,7 @@ const LoginScreen = ({ navigation }) => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -83,6 +97,23 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
   },
+  tex: {
+    color: "#000000",
+    fontWeight: "bold",
+    fontSize: 30,
+    marginLeft: 20,
+  },
+  link: {
+    color: "#5271FF",
+    fontWeight: "bold",
+    marginLeft: 65,
+  },
+  lin: {
+    color: "#5271FF",
+    fontWeight: "bold",
+    marginLeft: 85,
+
+  },
   formContainer: {
     height: 450,
     marginTop: 40,
@@ -90,7 +121,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    marginBottom: 10,
+    marginBottom: 12,
     paddingHorizontal: 10,
     borderRadius: 400,
     backgroundColor: "#fff",
@@ -105,7 +136,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 100,
     marginLeft: 100,
-    marginTop: 40,
+    marginTop: 25,
+    marginBottom: 20,
   },
   buttonText: {
     color: "#fff",
@@ -114,12 +146,12 @@ const styles = StyleSheet.create({
   fundo: {
     flex: 1,
     width: "300px",
-    height: "100px",
+    height: "80px",
     paddingBottom: 10,
     backgroundColor: "#76bb39",
     borderRadius: "40px",
     marginLeft: 55,
-    marginTop: 0,
+    marginTop: 90,
   },
   Log: {
     flex: 1,
@@ -129,6 +161,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 50,
   },
+
 
   Text: {
     color: "#fff",
