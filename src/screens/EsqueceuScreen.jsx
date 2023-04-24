@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, ImageBackground, Text } from 'react-native';
+import { View, TextInput, Button, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
 import image from "../../assets/Fundao.jpg";
 
 
@@ -10,7 +10,7 @@ const imageURI = image;
 
 
 
-const EsqueceuScreen = () => {
+const EsqueceuScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [novaSenha, setNovaSenha] = useState('');
   const handleSubmit = () => {
@@ -18,6 +18,13 @@ const EsqueceuScreen = () => {
     console.log(`Um email foi enviado para ${email} com a nova senha: ${novaSenha}`);
     setEmail('');
     setNovaSenha('');
+  };
+  const handleEsqueceu = () => {
+    // Implement the authentication logic here
+    // ...
+  
+    // Navigate to the home screen
+    navigation.navigate('LoginScreen');
   };
 
 
@@ -35,19 +42,21 @@ const EsqueceuScreen = () => {
             <TextInput
               style={styles.input}
               placeholder="Email"
+              placeholderTextColor="#999"
               value={email}
               onChangeText={setEmail}
             />
             <TextInput
               style={styles.input}
               placeholder="Nova senha"
+              placeholderTextColor="#999"
               value={novaSenha}
               onChangeText={setNovaSenha}
               secureTextEntry={true}
             />
-            <View style={styles.button} >
-              <Text style={styles.buttonText}>Entrar</Text>
-            </View>
+           <TouchableOpacity style={styles.button} onPress={handleEsqueceu}>
+              <Text style={styles.buttonText}>Alterar</Text>
+            </TouchableOpacity>
           </View>
 
         </View >

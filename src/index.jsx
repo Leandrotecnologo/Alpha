@@ -9,14 +9,9 @@ import InicioScreen from './screens/InicioScreen';
 import LoginScreen from './screens/LoginScreen';
 import EsqueceuScreen from './screens/EsqueceuScreen';
 import CadScreen from './screens/CadScreen';
-
-
-
-
-
+import LogoScreen from './screens/LogoScreen';
 
 const Drawer = createDrawerNavigator();
-
 
 export default function Index() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,23 +21,32 @@ export default function Index() {
   };
 
   return (
-    <NavigationContainer >
-      
-      <Drawer.Navigator  initialRouteName="Inicio" useLegacyImplementation>
+    <NavigationContainer>
+        <Drawer.Navigator
+    initialRouteName="Logo"
+    useLegacyImplementation
+    drawerStyle={{
+      backgroundColor: 'green',
+    }}
+  >
+    <Drawer.Screen name="LoginScreen" component={LoginScreen} />
+     <Drawer.Screen name="EsqueceuScreen" component={EsqueceuScreen} />
+        <Drawer.Screen name="Cadastrar" component={CadScreen} />
         <Drawer.Screen name="Inicio" component={InicioScreen} />
         <Drawer.Screen name="Programação" component={ProgramScreen} />
         <Drawer.Screen name="Locutores" component={LocutoresScreen} />
         <Drawer.Screen name="Contatos" component={ContatoScreen} />
         <Drawer.Screen name="Formulario" component={FormScreen} />
-        <Drawer.Screen name="LoginScreen" component={LoginScreen} />
-        <Drawer.Screen name="EsqueceuScreen" component={EsqueceuScreen}/>
-        <Drawer.Screen name="Cadastrar" component={CadScreen}/>
-        </Drawer.Navigator>        
+        <Drawer.Screen name="Logo" component={LogoScreen} />
+        </Drawer.Navigator>
+        
        
+
         <Drawer.Screen name="LoginScreen" options={{ headerShown: false }}>
           {props => <LoginScreen {...props} onLogin={handleLogin} />}
         </Drawer.Screen>
-     
+      
     </NavigationContainer>
   );
 }
+

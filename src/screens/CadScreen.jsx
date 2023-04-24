@@ -8,6 +8,8 @@ import {
   ImageBackground,
 } from "react-native";
 import image from "../../assets/Fundao.jpg";
+import ImagePicker from 'react-native-image-picker';
+
 
 const imageURI = image;
 
@@ -16,15 +18,23 @@ const CadScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [password, setPassword] = useState("");
+  const [imagemPerfil, setImagemPerfil] = useState(null);
 
-
-  const handleCadastrar = () => {
-    // implementar a lógica de autenticação aqui
+  const selecionarImagemPerfil = () => {
+    ImagePicker.showImagePicker({}, response => {
+      if (response.uri) {
+        setImagemPerfil(response.uri);
+      }
+    });
   };
 
-  const handlePress = () => {
-    // Navegue para o componente CadScreen quando o botão for pressionado
-  }
+  const handleCadastrar = () => {
+    // Implement the authentication logic here
+    // ...
+  
+    // Navigate to the home screen
+    navigation.navigate('LoginScreen');
+  };
 
 
 
@@ -39,9 +49,9 @@ const CadScreen = ({ navigation }) => {
 
           <View style={styles.fundo}>
 
-
-            <div style={styles.Log} ><Text style={styles.tex}>Cadastrar</Text></div>
-
+                <View style={styles.Log}>
+            <Text style={styles.tex}>Cadastrar</Text>
+            </View>
 
          
             <TextInput
@@ -78,9 +88,13 @@ const CadScreen = ({ navigation }) => {
               value={password}
               onChangeText={setPassword}
             />
-             <TouchableOpacity onPress={handlePress}>
-              <Text style={styles.link}>Imagem de Perfil</Text>
-            </TouchableOpacity>
+             <TouchableOpacity onPress={selecionarImagemPerfil}>
+        {imagemPerfil ? (
+          <Image source={{ uri: imagemPerfil }} style={styles.imagemPerfil} />
+        ) : (
+          <Text style={styles.link}>Selecionar foto de perfil</Text>
+        )}
+      </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={handleCadastrar}>
               <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
@@ -106,9 +120,9 @@ const styles = StyleSheet.create({
   tex: {
     color: "#000000",
     fontWeight: "bold",
-    fontSize: 20,
-    marginLeft: 0,
-    
+    fontSize: 30,
+    marginLeft: 80,
+    marginTop: 0,
   },
   link: {
     color: "#5271FF",
@@ -119,7 +133,11 @@ const styles = StyleSheet.create({
     color: "#5271FF",
     fontWeight: "bold",
     marginLeft: 85,
-
+  },
+  imagemPerfil: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
   },
   formContainer: {
     height: 450,
@@ -127,14 +145,13 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   input: {
-    height: 20,
-    marginBottom: 20,
+    height: 40,
+    marginBottom: 12,
     paddingHorizontal: 10,
     borderRadius: 400,
     backgroundColor: "#fff",
     width: 200,
     marginLeft: 50,
-    marginTop: 0,
   },
 
   button: {
@@ -160,12 +177,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#76bb39",
     borderRadius: "40px",
     marginLeft: 55,
-    marginTop: 90,
+    marginTop: 70,
   },
   Log: {
     flex: 1,
-    width: "100px",
-    marginLeft: 85,
+    marginLeft: 0,
     color: "#fff",
     fontWeight: "bold",
     fontSize: 50,
