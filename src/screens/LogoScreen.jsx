@@ -10,7 +10,7 @@ const LogoScreen = () => {
     const timer = setTimeout(() => {
       navigation.reset({
         index: 0,
-        routes: [{ name: 'HomeScreen' }],
+        routes: [{ name: 'LoginScreen' }],
       });
     }, 3000);
 

@@ -17,21 +17,25 @@ const LoginScreen = ({ navigation }) => {
 
 
   const handleLogin = () => {
-    // implementar a lógica de autenticação aqui
+    // Implement the authentication logic here
+    // ...
+  
+    // Navigate to the home screen
+    navigation.navigate('Inicio');
   };
+  
 
 
   const handlePress = () => {
     // Navegue para o componente CadScreen quando o botão for pressionado
-    navigation.navigate('CadScreen')
+    navigation.navigate('Cadastrar')
   }
   const handlePressed = () => {
     // Navegue para o componente CadScreen quando o botão for pressionado
 
     navigation.navigate('EsqueceuScreen');
   }
-
-
+  
 
   return (
     <View style={styles.container}>
@@ -98,10 +102,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   tex: {
-    color: "#000000",
+    color: "#fff",
     fontWeight: "bold",
+    marginLeft: 115,
     fontSize: 30,
-    marginLeft: 20,
   },
   link: {
     color: "#5271FF",
@@ -143,16 +147,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
-  fundo: {
-    flex: 1,
-    width: "300px",
-    height: "80px",
-    paddingBottom: 10,
-    backgroundColor: "#76bb39",
-    borderRadius: "40px",
-    marginLeft: 55,
-    marginTop: 90,
-  },
+
   Log: {
     flex: 1,
     width: "100px",

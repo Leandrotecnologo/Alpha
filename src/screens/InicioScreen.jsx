@@ -10,6 +10,7 @@ const brancoURI = require('../../assets/branco.png');
 const logoURI = require('../../assets/Logo.png');
 
 const InicioScreen = ({ navigation }) => {
+  
   return (
     <View style={styles.container}>
 
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   drawer: {
     headerShown: false,
     drawerStyle: {
-      overlayColor: 'rgba(0, 0, 0, 0.5)',
+      backgroundColor: '#00FF00',
     },
   },
   logo: {
