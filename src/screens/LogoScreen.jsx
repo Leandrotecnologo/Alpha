@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { View, Image, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Image, StyleSheet, ActivityIndicator, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-const backgroundImage = require('../../assets/back.png');
+import image from "../../assets/Fundao.jpg";
+
+const imageURI = image;
 
 const LogoScreen = () => {
   const navigation = useNavigation();
@@ -21,8 +23,13 @@ const LogoScreen = () => {
 
   return (
     <View style={styles.container}>
+    <ImageBackground source={imageURI} style={styles.backgroundImage}>
+
+    
       <Image source={require('../../assets/lolo.png')} style={styles.logo} />
       <ActivityIndicator size="large" color="#1DB954" />
+    
+    </ImageBackground>
     </View>
   );
 };
@@ -32,7 +39,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundImage: `url(${backgroundImage})`,
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
   },
   logo: {
     width: 500,
@@ -42,3 +53,4 @@ const styles = StyleSheet.create({
 });
 
 export default LogoScreen;
+

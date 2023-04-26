@@ -39,17 +39,13 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={{ uri: imageURI }}
-        style={styles.backgroundImage}
-
-      >
+    <ImageBackground source={imageURI} style={styles.backgroundImage}>
         <View style={styles.formContainer}>
 
           <View style={styles.fundo}>
 
 
-            <div style={styles.Log} ><Text style={styles.tex}>Login</Text></div>
+            <Text style={styles.tex}>Login</Text>
 
 
             <TextInput

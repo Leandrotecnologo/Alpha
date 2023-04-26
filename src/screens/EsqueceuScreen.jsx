@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
-import image from "../../assets/Fundao.jpg";
+import Fundao from "../../assets/Fundao.jpg";
+const imagemURI = Fundao;
 
 
 
-
-const imageURI = image;
 
 
 
@@ -32,13 +31,10 @@ const EsqueceuScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
 
-      <ImageBackground
-        source={{ uri: imageURI }}
-        style={styles.backgroundImage}
-      >
+<ImageBackground source={imagemURI} style={styles.backgroundImage}>
         <View style={styles.formContainer}>
           <View style={styles.fundo}>
-            <div style={styles.Log} ><Text style={styles.tex}>Alterar</Text></div>
+            <Text style={styles.tex}>Alterar</Text>
             <TextInput
               style={styles.input}
               placeholder="Email"

@@ -14,16 +14,19 @@ const InicioScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
 
-      <ImageBackground source={{ uri: imageURI }} style={styles.backgroundImage}>
+      <ImageBackground source={imageURI} style={styles.backgroundImage}>
+
                 <TouchableOpacity
           style={styles.drawer}
           onPress={() => navigation.openDrawer()}
-        ><Image source={logoURI} style={styles.logo} /></TouchableOpacity>
+        ><Image source={logoURI} style={styles.logo} />
+        </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.drawer}
           onPress={() => navigation.openDrawer()}
-        ><Image source={logoURI} style={styles.logo} /></TouchableOpacity>
+        ><Image source={logoURI} style={styles.logo} />
+        </TouchableOpacity>
 
         <View style={styles.overlay}>
 
@@ -77,14 +80,14 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300,
     borderRadius: 20,
-    alignItems: 'Center',
+    alignItems: 'center',
     marginLeft: 30,
   },
   Image2: {
     width: 300,
     height: 150,
     borderRadius: 20,
-    alignItems: 'Center',
+    alignItems: 'center',
     marginLeft: 30,
     marginTop: 30,
   },
