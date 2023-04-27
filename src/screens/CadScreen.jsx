@@ -5,19 +5,18 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
   ImageBackground,
 } from "react-native";
-import image from "../../assets/Fundao.jpg";
+import FundaoImage from "../../assets/Fundao.jpg";
 import ImagePicker from 'react-native-image-picker';
 
-
-const imageURI = image;
+const imagemURI = FundaoImage;
 
 const CadScreen = ({ navigation }) => {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [password, setPassword] = useState("");
+  const [senha, setSenha] = useState("");
   const [imagemPerfil, setImagemPerfil] = useState(null);
 
   const selecionarImagemPerfil = () => {
@@ -29,84 +28,62 @@ const CadScreen = ({ navigation }) => {
   };
 
   const handleCadastrar = () => {
-    // Implement the authentication logic here
+    // Implement authentication logic here
     // ...
-  
     // Navigate to the home screen
     navigation.navigate('LoginScreen');
   };
 
-
-
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={{ uri: imageURI }}
-        style={styles.backgroundImage}
-
-      >
+      <ImageBackground source={imagemURI} style={styles.backgroundImage}>
         <View style={styles.formContainer}>
-
           <View style={styles.fundo}>
-
-                <View style={styles.Log}>
-            <Text style={styles.tex}>Cadastrar</Text>
-            </View>
-
-         
-            <TextInput
-              style={styles.input}
-              placeholder="Nome"
-              placeholderTextColor="#999"
-              secureTextEntry
-              value={nome}
-              onChangeText={setNome}
-            />
-               <TextInput
-              style={styles.input}
-              placeholder="Email"
-              placeholderTextColor="#999"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoCorrect={false}
-              value={email}
-              onChangeText={setEmail}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Telefone"
-              placeholderTextColor="#999"
-              secureTextEntry
-              value={telefone}
-              onChangeText={setTelefone}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Senha"
-              placeholderTextColor="#999"
-              secureTextEntry
-              value={password}
-              onChangeText={setPassword}
-            />
-             <TouchableOpacity onPress={selecionarImagemPerfil}>
-        {imagemPerfil ? (
-          <Image source={{ uri: imagemPerfil }} style={styles.imagemPerfil} />
-        ) : (
-          <Text style={styles.link}>Selecionar foto de perfil</Text>
-        )}
-      </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={handleCadastrar}>
-              <Text style={styles.buttonText}>Cadastrar</Text>
-            </TouchableOpacity>
+            <View style={styles.Log}>
+              <Text style={styles.tex}>Cadastrar</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Nome"
+                placeholderTextColor="#999"
+                value={nome}
+                onChangeText={setNome}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="Email"
+                placeholderTextColor="#999"
+                value={email}
+                onChangeText={setEmail}
+              />
             
-
+              <TextInput
+                style={styles.input}
+                placeholder="Senha"
+                placeholderTextColor="#999"
+                secureTextEntry
+                value={senha}
+                onChangeText={setSenha}
+              />
+              <TouchableOpacity onPress={selecionarImagemPerfil}>
+                {imagemPerfil ? (
+                  <Image
+                    source={{ uri: imagemPerfil }}
+                    style={styles.imagemPerfil}
+                  />
+                ) : (
+                  <Text style={styles.link}>Selecionar foto de perfil</Text>
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.button} onPress={handleCadastrar}>
+                <Text style={styles.buttonText}>Cadastrar</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </ImageBackground>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -175,7 +152,7 @@ const styles = StyleSheet.create({
     height: 80,
     paddingBottom: 10,
     backgroundColor: "#76bb39",
-    borderRadius: "40px",
+    borderRadius: 40,
     marginLeft: 55,
     marginTop: 70,
   },

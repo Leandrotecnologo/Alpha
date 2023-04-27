@@ -3,8 +3,9 @@ import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image } from
 import imagem from '../../assets/Fundao.jpg';
 import logo from '../../assets/Logo.png';
 
-const logoURI = logo;
+const logotipo = logo;
 const imageURI = imagem;
+
 
 const ProgramScreen = ({ navigation }) => {
     const [expandedDays, setExpandedDays] = useState([]);
@@ -20,14 +21,15 @@ const ProgramScreen = ({ navigation }) => {
     const isDayExpanded = (day) => expandedDays.includes(day);
 
     return (
-        <ImageBackground
-        source={{ uri: imageURI }}
-        style={styles.backgroundImage}
-      >
+      <ImageBackground
+      source={imagem}
+      style={styles.backgroundImage}
+    >
+    
         <TouchableOpacity
           style={styles.drawer}
           onPress={() => navigation.openDrawer()}
-        ><Image source={logoURI} style={styles.logo} /></TouchableOpacity>
+        ><Image source={logotipo} style={styles.logo} /></TouchableOpacity>
         <View style={styles.container}>
      
             <TouchableOpacity style={isDayExpanded('Segunda') ? styles.dayExpanded : styles.day} onPress={() => toggleDay('Segunda')}>
