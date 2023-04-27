@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import FormScreen from './screens/FormScreen';
 import ContatoScreen from './screens/ContatoScreen';
 import LocutoresScreen from './screens/LocutoresScreen';
 import ProgramScreen from './screens/ProgramScreen';
@@ -36,7 +35,6 @@ export default function Index() {
         <Drawer.Screen name="Programação" component={ProgramScreen} />
         <Drawer.Screen name="Locutores" component={LocutoresScreen} />
         <Drawer.Screen name="Contatos" component={ContatoScreen} />
-        <Drawer.Screen name="Formulario" component={FormScreen} />
         <Drawer.Screen name="Logo" component={LogoScreen} />
         </Drawer.Navigator>
         
