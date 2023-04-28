@@ -6,8 +6,10 @@ import {
   TouchableOpacity,
   View,
   ImageBackground,
+  Image,
 } from "react-native";
 import image from "../../assets/Fundao.jpg";
+import logo from "../../assets/Logo.png";
 
 const imageURI = image;
 
@@ -15,38 +17,35 @@ const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   const handleLogin = () => {
     // Implement the authentication logic here
     // ...
-  
-    // Navigate to the home screen
-    navigation.navigate('Inicio');
-  };
-  
 
+    // Navigate to the home screen
+    navigation.navigate("Inicio");
+  };
 
   const handlePress = () => {
     // Navegue para o componente CadScreen quando o botão for pressionado
-    navigation.navigate('Cadastrar')
-  }
+    navigation.navigate("Cadastrar");
+  };
   const handlePressed = () => {
     // Navegue para o componente CadScreen quando o botão for pressionado
-
-    navigation.navigate('EsqueceuScreen');
-  }
-  
+    navigation.navigate("EsqueceuScreen");
+  };
 
   return (
     <View style={styles.container}>
-    <ImageBackground source={imageURI} style={styles.backgroundImage}>
-        <View style={styles.formContainer}>
+      <ImageBackground source={imageURI} style={styles.backgroundImage}>
+      <Image source={logo} style={styles.logo} />
+        <View style={styles.overlay}>
+        
+          <Text style={styles.tex}>Login</Text>
 
-          <View style={styles.fundo}>
-
-
-            <Text style={styles.tex}>Login</Text>
-
+          <View style={styles.formContainer}>
+            <View style={styles.logoContainer}>
+              
+            </View>
 
             <TextInput
               style={styles.input}
@@ -74,11 +73,8 @@ const LoginScreen = ({ navigation }) => {
               <Text style={styles.link}>Não tem conta? Cadastre-se</Text>
             </TouchableOpacity>
 
-
-
             <TouchableOpacity onPress={handlePressed}>
               <Text style={styles.lin}>Esqueceu sua senha?</Text>
-
             </TouchableOpacity>
           </View>
         </View>
@@ -86,7 +82,6 @@ const LoginScreen = ({ navigation }) => {
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -97,21 +92,41 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
   },
+  overlay: {
+    
+    opacity: 0.8,
+    height: 450,
+    borderRadius: 20,
+  },
+ 
+  logoContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 40,
+    marginLeft: 50,
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    resizeMode: "contain",
+  },
+
   tex: {
     color: "#fff",
     fontWeight: "bold",
-    marginLeft: 115,
-    fontSize: 30,
+    marginLeft: 130,
+    fontSize: 50,
+    marginTop: 50,
   },
   link: {
     color: "#5271FF",
     fontWeight: "bold",
-    marginLeft: 65,
+    marginLeft: 120,
   },
   lin: {
     color: "#5271FF",
     fontWeight: "bold",
-    marginLeft: 85,
+    marginLeft: 120,
 
   },
   formContainer: {
@@ -121,12 +136,13 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    marginBottom: 12,
+    marginBottom: 0,
+    borderRadius: 20,
     paddingHorizontal: 10,
-    borderRadius: 400,
     backgroundColor: "#fff",
-    width: 200,
-    marginLeft: 50,
+    width: 320,
+    marginLeft: 45,
+    marginTop: 20,
   },
   button: {
     height: 40,
@@ -135,9 +151,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: 100,
-    marginLeft: 100,
-    marginTop: 25,
-    marginBottom: 20,
+    marginLeft: 150,
+    marginTop: 20,
+    marginBottom: 30,
   },
   buttonText: {
     color: "#fff",
