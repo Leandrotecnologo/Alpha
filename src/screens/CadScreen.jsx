@@ -8,10 +8,10 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
-import FundaoImage from "../../assets/Fundao.jpg";
-import ImagePicker from 'react-native-image-picker';
+import logo from "../../assets/Fundasc.png";
+import image from "../../assets/Fundao.jpg";
 
-const imagemURI = FundaoImage;
+const imageURI = image;
 
 const CadScreen = ({ navigation }) => {
   const [nome, setNome] = useState("");
@@ -36,7 +36,8 @@ const CadScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={imagemURI} style={styles.backgroundImage}>
+       <ImageBackground source={imageURI} style={styles.backgroundImage}>
+        <Image source={logo} style={styles.logo} />
         <View style={styles.formContainer}>
           <View style={styles.fundo}>
             <View style={styles.Log}>
@@ -88,33 +89,43 @@ const CadScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#4B942C",
   },
   backgroundImage: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
   },
+  overlay: {
+    height: 450,
+    borderRadius: 20,
+  },
+  logo: {
+    width: 300,
+    height: 150,
+    resizeMode: "contain",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 65,
+  },
+
   tex: {
-    color: "#000000",
+    color: "#fff",
     fontWeight: "bold",
-    fontSize: 30,
-    marginLeft: 80,
-    marginTop: 0,
+    marginLeft: 130,
+    fontSize: 50,
+    marginEnd: 100,
   },
   link: {
     color: "#5271FF",
     fontWeight: "bold",
-    marginLeft: 65,
+    marginLeft: 120,
   },
   lin: {
     color: "#5271FF",
     fontWeight: "bold",
-    marginLeft: 85,
-  },
-  imagemPerfil: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
+    marginLeft: 120,
+
   },
   formContainer: {
     height: 450,
@@ -123,14 +134,14 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    marginBottom: 12,
+    marginBottom: 0,
+    borderRadius: 20,
     paddingHorizontal: 10,
-    borderRadius: 400,
     backgroundColor: "#fff",
-    width: 200,
-    marginLeft: 50,
+    width: 320,
+    marginLeft: 45,
+    marginTop: 20,
   },
-
   button: {
     height: 40,
     borderRadius: 40,
@@ -138,27 +149,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: 100,
-    marginLeft: 100,
-    marginTop: 25,
-    marginBottom: 20,
+    marginLeft: 150,
+    marginTop: 20,
+    marginBottom: 30,
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
   },
-  fundo: {
-    flex: 1,
-    width: 300,
-    height: 80,
-    paddingBottom: 10,
-    backgroundColor: "#76bb39",
-    borderRadius: 40,
-    marginLeft: 55,
-    marginTop: 70,
-  },
+
   Log: {
     flex: 1,
-    marginLeft: 0,
+    width: "100px",
+    marginLeft: 85,
     color: "#fff",
     fontWeight: "bold",
     fontSize: 50,

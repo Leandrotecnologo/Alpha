@@ -1,39 +1,57 @@
-import React from 'react';
-import { StyleSheet, ImageBackground, View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
-
-
-
+import React, { useState } from 'react';
+import { StyleSheet, ImageBackground, View, Text, Image, TouchableOpacity } from 'react-native';
+import { Audio } from 'expo-av';
 
 const imageURI = require('../../assets/back.png');
 const musicaURI = require('../../assets/musica.gif');
 const brancoURI = require('../../assets/branco.png');
 const logoURI = require('../../assets/Logo.png');
+const musicURL = require('../../assets/Photografy.mp3'); // substitua pela URL da sua música
 
 const InicioScreen = ({ navigation }) => {
+  const [playing, setPlaying] = useState(false);
+  const [sound, setSound] = useState();
+
+  const togglePlayback = async () => {
+    if (playing) {
+      await sound.pauseAsync();
+      setPlaying(false);
+    } else {
+      try {
+        const { sound } = await Audio.Sound.createAsync(musicURL, { shouldPlay: true });
+        setSound(sound);
+        setPlaying(true);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
   
+
   return (
     <View style={styles.container}>
-
       <ImageBackground source={imageURI} style={styles.backgroundImage}>
-
-                <TouchableOpacity
-          style={styles.drawer}
-          onPress={() => navigation.openDrawer()}
-        ><Image source={logoURI} style={styles.logo} />
-        </TouchableOpacity>
-
         <TouchableOpacity
           style={styles.drawer}
           onPress={() => navigation.openDrawer()}
-        ><Image source={logoURI} style={styles.logo} />
+        >
+          <Image source={logoURI} style={styles.logo} />
         </TouchableOpacity>
-
+        <TouchableOpacity
+          style={styles.drawer}
+          onPress={() => navigation.openDrawer()}
+        >
+          <Image source={logoURI} style={styles.logo} />
+        </TouchableOpacity>
         <View style={styles.overlay}>
-
           <Text style={styles.userCount}>Users: 10</Text>
           <Image source={musicaURI} style={styles.Image} />
           <Image source={brancoURI} style={styles.Image2} />
-          <TextInput style={styles.input} placeholder="Peça sua música" />
+          <TouchableOpacity style={styles.button} onPress={togglePlayback}>
+            <Text style={styles.buttonText}>
+              {playing ? 'Parar música' : 'Reproduzir música'}
+            </Text>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
@@ -48,20 +66,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
-  },
   overlay: {
     marginTop: 70,
-  },
-  title: {
-    fontSize: 40,
-    color: 'white',
-    fontWeight: 'bold',
-    marginLeft: 20,
   },
   drawer: {
     headerShown: false,
@@ -69,6 +75,19 @@ const styles = StyleSheet.create({
       backgroundColor: '#00FF00',
     },
   },
+  button: {
+      backgroundColor: '#76BB39',
+      borderRadius: 5,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      marginTop: 20,
+      alignSelf: 'center',
+    },
+    buttonText: {
+      color: 'white',
+      fontSize: 16,
+      fontWeight: 'bold',
+    },
   logo: {
     width: 60,
     height: 50,
@@ -95,8 +114,8 @@ const styles = StyleSheet.create({
     color: '#0f0',
     fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 20,
-    marginLeft: 30,
+    marginBottom: 20
+
   },
   input: {
     height: 40,
