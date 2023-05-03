@@ -8,8 +8,9 @@ import {
   ImageBackground,
   Image,
 } from "react-native";
+import logo from "../../assets/Fundasc.png";
 import image from "../../assets/Fundao.jpg";
-import logo from "../../assets/Logo.png";
+
 
 const imageURI = image;
 
@@ -37,15 +38,12 @@ const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={imageURI} style={styles.backgroundImage}>
-      <Image source={logo} style={styles.logo} />
+        <Image source={logo} style={styles.logo} />
         <View style={styles.overlay}>
-        
           <Text style={styles.tex}>Login</Text>
 
           <View style={styles.formContainer}>
-            <View style={styles.logoContainer}>
-              
-            </View>
+            <View style={styles.logoContainer}></View>
 
             <TextInput
               style={styles.input}
@@ -86,6 +84,7 @@ const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#4B942C",
   },
   backgroundImage: {
     flex: 1,
@@ -93,22 +92,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   overlay: {
-    
-    opacity: 0.8,
     height: 450,
     borderRadius: 20,
   },
- 
-  logoContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 40,
-    marginLeft: 50,
-  },
   logo: {
-    width: 150,
+    width: 300,
     height: 150,
     resizeMode: "contain",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 65,
   },
 
   tex: {
@@ -116,7 +109,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 130,
     fontSize: 50,
-    marginTop: 50,
+    marginEnd: 100,
   },
   link: {
     color: "#5271FF",
