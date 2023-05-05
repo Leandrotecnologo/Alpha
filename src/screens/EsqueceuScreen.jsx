@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, ImageBackground, Text, TouchableOpacity, Image } from 'react-native';
 import Fundao from "../../assets/Fundao.jpg";
-const imagemURI = Fundao;
+import logo from "../../assets/Fundasc.png";
 
+const imagemURI = Fundao;
+const LogoURI = logo;
 
 
 
@@ -23,7 +25,7 @@ const EsqueceuScreen = ({ navigation }) => {
     // ...
   
     // Navigate to the home screen
-    navigation.navigate('LoginScreen');
+    navigation.navigate('Logout');
   };
 
 
@@ -32,6 +34,7 @@ const EsqueceuScreen = ({ navigation }) => {
     <View style={styles.container}>
 
 <ImageBackground source={imagemURI} style={styles.backgroundImage}>
+     <Image source={LogoURI} style={styles.logo} />
         <View style={styles.formContainer}>
           <View style={styles.fundo}>
             <Text style={styles.tex}>Alterar</Text>
@@ -69,20 +72,38 @@ const EsqueceuScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#4B942C",
   },
   backgroundImage: {
     flex: 1,
     resizeMode: "cover",
     justifyContent: "center",
   },
-  tex: {
-    color: "#000000",
-    fontWeight: "bold",
-    fontSize: 30,
-    marginLeft: 0,
+  overlay: {
+    height: 450,
+    borderRadius: 20,
+  },
+  logo: {
+    width: 300,
+    height: 150,
+    resizeMode: "contain",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 65,
   },
 
-
+  tex: {
+    color: "#fff",
+    fontWeight: "bold",
+    marginLeft: 130,
+    fontSize: 50,
+    marginEnd: 100,
+  },
+  link: {
+    color: "#5271FF",
+    fontWeight: "bold",
+    marginLeft: 120,
+  },
 
   formContainer: {
     height: 450,
@@ -91,12 +112,13 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    marginBottom: 12,
+    marginBottom: 0,
+    borderRadius: 20,
     paddingHorizontal: 10,
-    borderRadius: 400,
     backgroundColor: "#fff",
-    width: 200,
-    marginLeft: 50,
+    width: 260,
+    marginLeft: 70,
+    marginTop: 20,
   },
   button: {
     height: 40,
@@ -105,24 +127,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: 100,
-    marginLeft: 100,
-    marginTop: 40,
-    marginBottom: 20,
+    marginLeft: 150,
+    marginTop: 20,
+    marginBottom: 30,
   },
   buttonText: {
     color: "#fff",
     fontWeight: "bold",
   },
-  fundo: {
-    flex: 1,
-    width: 300,
-    height: 80,
-    paddingBottom: 10,
-    backgroundColor: "#76bb39",
-    borderRadius: 40,
-    marginLeft: 55,
-    marginTop: 120,
-  },
+
   Log: {
     flex: 1,
     width: 100,
@@ -132,12 +145,12 @@ const styles = StyleSheet.create({
     fontSize: 50,
   },
 
+
   Text: {
     color: "#fff",
     fontWeight: "bold",
     marginLeft: 115,
   },
-
 });
 
 export default EsqueceuScreen;
