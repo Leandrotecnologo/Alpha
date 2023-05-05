@@ -12,7 +12,7 @@ const LogoScreen = () => {
     const timer = setTimeout(() => {
       navigation.reset({
         index: 0,
-        routes: [{ name: 'LoginScreen' }],
+        routes: [{ name: 'Logout' }],
       });
     }, 3000);
 
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     width: 500,
     height: 500,
     marginBottom: 20,
+    marginRight: 0,
   },
 });
 

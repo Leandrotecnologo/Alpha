@@ -46,11 +46,10 @@ export default function Index() {
         <Drawer.Screen name="Programação" component={ProgramScreen} />
         <Drawer.Screen name="Locutores" component={LocutoresScreen} />
         <Drawer.Screen name="Contatos" component={ContatoScreen} />
+        <Stack.Screen name="Logout" component={LoginScreen} />
         <Drawer.Screen name="Logo" options={{
       drawerLabel:() => null, }} component={LogoScreen} />
-        <Stack.Screen name="LoginScreen"  options={{
-      drawerLabel:() => null,
-    }} component={LoginScreen} />
+        
      <Drawer.Screen name="EsqueceuScreen" options={{
       drawerLabel:() => null, }} component={EsqueceuScreen} />
         <Drawer.Screen name="Cadastrar" options={{

@@ -6,7 +6,7 @@ const imageURI = require('../../assets/back.png');
 const musicaURI = require('../../assets/musica.gif');
 const brancoURI = require('../../assets/branco.png');
 const logoURI = require('../../assets/Logo.png');
-const musicURL = require('../../assets/Photografy.mp3'); // substitua pela URL da sua música
+const musicURL = require('../../assets/BackInBlack.mp3'); // substitua pela URL da sua música
 
 const InicioScreen = ({ navigation }) => {
   const [playing, setPlaying] = useState(false);
@@ -100,14 +100,14 @@ const styles = StyleSheet.create({
     height: 300,
     borderRadius: 20,
     alignItems: 'center',
-    marginLeft: 30,
+    marginLeft: 50,
   },
   Image2: {
     width: 300,
     height: 150,
     borderRadius: 20,
     alignItems: 'center',
-    marginLeft: 30,
+    marginLeft: 50,
     marginTop: 30,
   },
   userCount: {

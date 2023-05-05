@@ -31,7 +31,7 @@ const CadScreen = ({ navigation }) => {
     // Implement authentication logic here
     // ...
     // Navigate to the home screen
-    navigation.navigate('LoginScreen');
+    navigation.navigate('Logout');
   };
 
   return (
@@ -121,12 +121,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 120,
   },
-  lin: {
-    color: "#5271FF",
-    fontWeight: "bold",
-    marginLeft: 120,
 
-  },
   formContainer: {
     height: 450,
     marginTop: 40,
@@ -138,8 +133,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 10,
     backgroundColor: "#fff",
-    width: 320,
-    marginLeft: 45,
+    width: 260,
+    marginLeft: 0,
     marginTop: 20,
   },
   button: {
@@ -149,7 +144,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: 100,
-    marginLeft: 150,
+    marginLeft: 80,
     marginTop: 20,
     marginBottom: 30,
   },
@@ -160,7 +155,7 @@ const styles = StyleSheet.create({
 
   Log: {
     flex: 1,
-    width: "100px",
+    width: 100,
     marginLeft: 85,
     color: "#fff",
     fontWeight: "bold",
